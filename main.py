@@ -20,20 +20,21 @@ class PentestFramework:
         os.makedirs(self.results_dir, exist_ok=True)
         os.makedirs("payloads", exist_ok=True)
     
-    def print_banner(self):
+     def print_banner(self):
         banner = f"""
-{Fore.CYAN}╔══════════════════════════════════════════════════════════════╗
+{Fore.CYAN}
+╔════════════════════════════════════════════════════════════════════╗
 ║    ██████╗ ███████╗███╗   ██╗████████╗███████╗███████╗████████╗    ║
 ║   ██╔═══██╗██╔════╝████╗  ██║╚══██╔══╝██╔════╝██╔════╝╚══██╔══╝    ║
 ║   ██║   ██║█████╗  ██╔██╗ ██║   ██║   █████╗  ███████╗   ██║       ║
 ║   ██║   ██║██╔══╝  ██║╚██╗██║   ██║   ██╔══╝  ╚════██║   ██║       ║
 ║   ╚██████╔╝███████╗██║ ╚████║   ██║   ███████╗███████║   ██║       ║
 ║    ╚═════╝ ╚══════╝╚═╝  ╚═══╝   ╚═╝   ╚══════╝╚══════╝   ╚═╝       ║
-║                                                                   ║
-║        32-IN-1 WEB VULNERABILITY SCANNER FRAMEWORK                ║
-║                    Version:{self.version}
-                     Create by MR•Zeeone-Grayhat               ║
-╚══════════════════════════════════════════════════════════════╝{Style.RESET_ALL}
+║                                                                    ║
+║        32-IN-1 WEB VULNERABILITY SCANNER FRAMEWORK                 ║
+║                    Version:{self.version}                          ║
+║                    Create by MR•Zeeone-Grayhat                     ║
+╚════════════════════════════════════════════════════════════════════╝{Style.RESET_ALL}
 """
         print(banner)
     
