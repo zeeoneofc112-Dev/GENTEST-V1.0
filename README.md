@@ -2,15 +2,6 @@
 
 PENTEST-WEB FRAMEWORK
 
-<p align="center">
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" width="50"/>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg" alt="npm" width="50"/>
-  <img src="https://raw.githubusercontent.com/termux/termux-app/master/extras/termux-icon.png" alt="Termux" width="50"/>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" width="50"/>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ubuntu/ubuntu-plain.svg" alt="Ubuntu" width="50"/>
-  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/debian/debian-original.svg" alt="Debian" width="50"/>
-</p>
-
 32-IN-1 WEB VULNERABILITY SCANNER
 Simple, Powerful, and Deadly Accurate
 
@@ -443,12 +434,18 @@ Pentest-Web - Making web security assessment accessible for everyone
 
 ⭐ Star this project if you find it useful!
 
-https://img.shields.io/github/stars/zeeone-ofc/pentest-web?style=social
-https://img.shields.io/github/forks/zeeone-ofc/pentest-web?style=social
+<p align="center">
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg" alt="Node.js" width="50"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/npm/npm-original-wordmark.svg" alt="npm" width="50"/>
+  <img src="https://raw.githubusercontent.com/termux/termux-app/master/extras/termux-icon.png" alt="Termux" width="50"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/linux/linux-original.svg" alt="Linux" width="50"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ubuntu/ubuntu-plain.svg" alt="Ubuntu" width="50"/>
+  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/debian/debian-original.svg" alt="Debian" width="50"/>
+</p>
 
-</div>
+
 
 ---
 
-© 2024 Pentest-Web Framework | MR•Zeeone-Grayhat | Team CyberCrime Indonesia
+© 2026 Pentest-Web Framework | MR•Zeeone-Grayhat | Team CyberCrime Indonesia
 Empowering Security Researchers Worldwide
