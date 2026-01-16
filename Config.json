@@ -1,0 +1,18 @@
+{
+  "version": "1.1",
+  "scanning": {
+    "timeout": 10,
+    "threads": 3,
+    "user_agent": "Pentest-Web/v1.1",
+    "follow_redirects": true,
+    "verify_ssl": false
+  },
+  "reporting": {
+    "format": ["html", "json"],
+    "save_path": "./reports"
+  },
+  "modules": {
+    "auto_update": true,
+    "default_target": "http://testphp.vulnweb.com"
+  }
+}
