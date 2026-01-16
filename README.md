@@ -73,7 +73,9 @@ git clone https://github.com/zeeone-ofc/pentest-web.git
 cd pentest-web
 
 # Run Installer
-python3 installer.py
+python3 install_V1.1.py
+# Atau
+./install_V1.1.py
 
 # Run Framework
 python3 main.py
@@ -92,6 +94,7 @@ Basic Usage
 ```bash
 # Run main menu
 python3 main.py
+Atau ./main.py
 
 # Run specific scanner
 python3 modules/sql_injection.py http://target.com
@@ -346,9 +349,8 @@ Team CyberCrime Indonesia
 
 Community
 
-· Telegram Group: @CyberCrimeID
-· Discord: https://discord.gg/cybercrime-id
-· Forum: forum.cybercrime.id
+· Telegram Group: https://t.me/+F50IpWb9Veo5ODRl
+· Forums join: https://whatsapp.com/channel/0029VbC2rSMGJP8LhiYUy30t
 
 📄 LICENSE
 
