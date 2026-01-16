@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Installer untuk Pentest-Web v1.1
+Installer untuk GENTEST-Web v1.1
 Membuat semua file dan struktur
 """
 
@@ -16,7 +16,7 @@ def install_pentest_v1_1():
     
     print(f"{Fore.CYAN}╔══════════════════════════════════════════════════╗")
     print(f"║         PENTEST-WEB v1.1 INSTALLER               ║")
-    print(f"║        Hybrid Structure + 32 Menu               ║")
+    print(f"║        GENTEST Structure + 32 Menu               ║")
     print(f"╚══════════════════════════════════════════════════╝{Style.RESET_ALL}")
     
     
